@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { Home } from "./components/Home";
 import { Quiz } from "./components/Quiz";
+import { NextQuestion } from "./components/NextQuestion";
 
 function App() {
   return (
@@ -8,7 +9,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/quiz" element={<Quiz />} />
-        {/* <Route path="/admin/dashboard" element={<Dashboard />} /> */}
+        <Route path="/nextquestion" element={<NextQuestion/>} />
       </Routes>
     </div>
   );
