@@ -5,19 +5,22 @@ import { UseNextButton } from "../Hooks/UseNextButton";
 
 function NextQuestion() {
   const { list } = UseFetchQuestions();
-  const {showNextButton,wrapperRef} = UseNextButton()
+  const {showNextButton,wrapperRef, correctAnswerRef} = UseNextButton()
 
   return (
     <div>
     
       {list ? (
-        <div ref={wrapperRef}>
+        <>
           <p>{list.questions[1].question}</p>
+        <div ref={wrapperRef}>
+        
           <li>{list.questions[1].options[0]}</li>
           <li>{list.questions[1].options[1]}</li>
-          <li>{list.questions[1].options[2]}</li>
+          <li ref={correctAnswerRef}>{list.questions[1].options[2]}</li>
           <li>{list.questions[1].options[3]}</li>
         </div>
+        </>
        
       ) : (
         <Loading />
