@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { Home } from "./components/Home";
 import { Quiz } from "./components/Quiz";
 import { NextQuestion } from "./components/NextQuestion";
+import { LastQuestion } from "./components/LastQuestion";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/quiz" element={<Quiz />} />
         <Route path="/nextquestion" element={<NextQuestion/>} />
+        <Route path="/lastQuestion" element={<LastQuestion/>} />
       </Routes>
     </div>
   );

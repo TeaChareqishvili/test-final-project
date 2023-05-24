@@ -1,7 +1,7 @@
 import { UseFetchQuestions } from "../Hooks/UseFetchQuestions";
 import { Loading } from "./Loading";
 import { UseNextButton } from "../Hooks/UseNextButton";
-// import { NavLink } from "react-router-dom";
+ import { NavLink } from "react-router-dom";
 
 function NextQuestion() {
   const { list } = UseFetchQuestions();
@@ -12,7 +12,7 @@ function NextQuestion() {
     
       {list ? (
         <div ref={wrapperRef}>
-          <li>{list.questions[1].question}</li>
+          <p>{list.questions[1].question}</p>
           <li>{list.questions[1].options[0]}</li>
           <li>{list.questions[1].options[1]}</li>
           <li>{list.questions[1].options[2]}</li>
@@ -22,7 +22,9 @@ function NextQuestion() {
       ) : (
         <Loading />
       )}
-      {showNextButton && <button>next</button>}
+      {showNextButton && <NavLink to="/lastQuestion">
+          <button>Next</button>
+        </NavLink>}
     </div>
   );
   
