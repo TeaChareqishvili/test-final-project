@@ -1,27 +1,51 @@
-.home-page{
-  display:flex;
-  align-items: center;
-  justify-content: center;
-   flex-direction: column;
+h1{
+    text-align:center;
+    font-size:2.5rem;
+    font-weight:bold;
+    letter-spacing: 1.1px;
+    margin:30px auto;
+    color:#E3E8F2;
+}
 
+
+
+.start-quiz{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  padding:20px 30px;
+  font-size:1.5rem;
+  border-radius:5px;
+  color:#678E6C;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+
+
+
+
+
+
+.progress-bar{
+    width:15%;
+    height:30px;
+    background-color:antiquewhite;
+    border-radius:10px;
+    margin-top:20px;
+    margin-left:20px;
+}
+
+.progress-bar-fill{
+    height:100%;
+    border-radius:10px;
   
-   
+    transition:width 0.5s ease-out;
+}
 
-    h1{
-        text-align: center;
-        color:white;
-        
-    }
-
-    button{
-        padding:10px 20px;
-        border-radius:5px;
-        background-color:#CDB6B6;
-        color:black;
-        margin-top:10px;
-    }
-};
-
-.ring{
-   
-};
+.progress-label{
+    font-size:25px;
+    margin-top:10px;
+    color: black;
+}

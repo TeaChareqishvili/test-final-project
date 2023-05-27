@@ -1,19 +1,22 @@
 import { useState, useEffect } from "react";
 
-const response =
-  "https://my-json-server.typicode.com/DanielBarbakadze/Advanced-JS-and-React-Basics/db";
+const apiUrl =
+"https://opentdb.com/api.php?amount=5&category=20&type=multiple";
 
 const UseFetchQuestions = () => {
-  const [list, setList] = useState();
+  const [test, setList] = useState(null);
+ 
 
   useEffect(() => {
-    fetch(response)
+    fetch(apiUrl)
       .then((response) => response.json())
       .then((json) => setList(json));
   }, []);
 
+  
+ 
   return {
-    list,
+    test,
   };
 };
 

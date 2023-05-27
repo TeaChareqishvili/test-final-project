@@ -2,10 +2,16 @@ import { NavLink } from "react-router-dom";
 import { Loading } from "./Loading";
 import { UseFetchQuestions } from "../Hooks/UseFetchQuestions";
 import { UseNextButton } from "../Hooks/UseNextButton";
+import { useState } from "react";
 
 function Quiz() {
   const { list } = UseFetchQuestions();
-  const { showNextButton, wrapperRef, correctAnswerRef } = UseNextButton();
+  const { showNextButton } = UseNextButton();
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+
+  const handleItemClick = (index) => {
+    setSelectedAnswer(index + 1);
+  };
 
   return (
     <div>
@@ -13,11 +19,23 @@ function Quiz() {
       {list ? (
         <>
           <p>{list.questions[0].question}</p>
-          <div ref={wrapperRef}>
-            <li>{list.questions[0].options[0]}</li>
-            <li>{list.questions[0].options[1]}</li>
-            <li ref={correctAnswerRef}>{list.questions[0].options[2]}</li>
-            <li>{list.questions[0].options[3]}</li>
+          <div>
+            {list.questions[0].options.map((option, index) => (
+              <li
+                key={index}
+                onClick={() => handleItemClick(index)}
+                style={{
+                  color:
+                    selectedAnswer === index + 1
+                      ? index === 2
+                        ? "green"
+                        : "red"
+                      : "initial",
+                }}
+              >
+                {option}
+              </li>
+            ))}
           </div>
         </>
       ) : (
@@ -31,5 +49,4 @@ function Quiz() {
     </div>
   );
 }
-
 export { Quiz };
