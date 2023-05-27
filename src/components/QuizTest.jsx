@@ -11,9 +11,9 @@ function QuizTest() {
   const { handleOptionChange, checkAnswer } = UseColors(test);
 
   return (
-    <div className="quiz-wrapper" ref={quizRef}>
+    <div className="quiz-wrapper" >
       {test ? (
-        <div className="quiz">
+        <div className="quiz" ref={quizRef}>
 
           <p className="title">{test.results[0].category}</p>
           <p className="question">{test.results[0].question}</p>
