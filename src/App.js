@@ -1,8 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import { Home } from "./components/Home";
 import { SecondPage } from "./components/SecondPage";
-import { LastQuestion } from "./components/LastQuestion";
 import { QuizTest } from "./components/QuizTest";
+import { ThirdPage } from "./components/ThirdPage";
 function App() {
   return (
     <div className="App">
@@ -11,7 +11,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/quiztest" element={<QuizTest />} />
         <Route path="/secondpage" element={<SecondPage/>} />
-        <Route path="/lastQuestion" element={<LastQuestion/>} />
+        <Route path="/thirdpage" element={<ThirdPage/>} />
       </Routes>
     </div>
   );
