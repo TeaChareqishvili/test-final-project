@@ -3,20 +3,21 @@ import { UseFetchQuestions } from "../Hooks/UseFetchQuestions";
 import { UseNextButton } from "../Hooks/UseNextButton";
 import { NavLink } from "react-router-dom";
 import { UseColors } from "../Hooks/UseColors";
+import "./styles/QuestionStyles.scss"
 
 
 function SecondPage(){
 
     const { test } = UseFetchQuestions();
-    const { showNextButton } = UseNextButton();
+    const { showNextButton,quizRef } = UseNextButton();
     const { handleOptionChange, checkAnswer } = UseColors(test);
   
     return (
-        <div>
+        <div className="quiz-wrapper" ref={quizRef}>
         {test ? (
-          <>
-            <p>{test.results[1].category}</p>
-            <p>{test.results[1].question}</p>
+          <div className="quiz">
+            <p className="title">{test.results[1].category}</p>
+            <p className="question">{test.results[1].question}</p>
   
             <label
               style={{ color: checkAnswer(test.results[1].incorrect_answers[0]) }}
@@ -60,7 +61,7 @@ function SecondPage(){
               />
               {test.results[1].correct_answer}
             </label>
-          </>
+          </div>
         ) : (
           <Loading />
         )}

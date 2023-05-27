@@ -4,6 +4,7 @@ const UseNextButton = () => {
   // const wrapperRef = useRef(null);
   const [showNextButton, setShowNextButton] = useState(false);
    const correctAnswerRef = useRef(null);
+  //  const quizRef = useRef(null)
 //   const alsoCorrectRef = useRef(null);
   
   useEffect(() => {

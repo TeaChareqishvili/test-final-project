@@ -1,4 +1,4 @@
-import "./HomePageStyle.scss";
+import "./styles/HomePageStyle.scss"
 import { NavLink } from "react-router-dom";
 
 function Home() {
