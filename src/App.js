@@ -5,10 +5,13 @@ import { QuizTest } from "./components/QuizTest";
 import { ThirdPage } from "./components/ThirdPage";
 import { FourthPage } from "./components/FourthPage";
 import { LastPage } from "./components/LastPage";
+// import { ProgressBarQuiz } from "./components/ProgressBarQuiz";
+
+
 function App() {
   return (
     <div className="App">
-   
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/quiztest" element={<QuizTest />} />

@@ -4,18 +4,22 @@ import { UseNextButton } from "../Hooks/UseNextButton";
 import { NavLink } from "react-router-dom";
 import { UseColors } from "../Hooks/UseColors";
 import "./styles/QuestionStyles.scss"
-
+import { ProgressBarQuiz } from "./ProgressBarQuiz";
+import { UseProgress } from "../Hooks/UseProgress";
 
 function SecondPage(){
 
     const { test } = UseFetchQuestions();
     const { showNextButton,quizRef } = UseNextButton();
     const { handleOptionChange, checkAnswer } = UseColors(test);
-  
+    const { getColor, progress } = UseProgress();
     return (
         <div className="quiz-wrapper" ref={quizRef}>
         {test ? (
+            <>
+            
           <div className="quiz">
+          <ProgressBarQuiz getColor={getColor} progress={progress} />
             <p className="title">{test.results[1].category}</p>
             <p className="question">{test.results[1].question}</p>
   
@@ -62,6 +66,7 @@ function SecondPage(){
               {test.results[1].correct_answer}
             </label>
           </div>
+          </>
         ) : (
           <Loading />
         )}
